@@ -17,7 +17,7 @@ const App = () => {
       setLoading(true)
       setMessage((prev)=> [...prev, {role: "assistant", contentBot: "Fetching", isLoading: true}])
 
-      let res = await axios.post("http://localhost:3000/llm", { text });
+      let res = await axios.post("https://customer-support-bot-backend-r3c4.onrender.com/llm", { text });
 
       setMessage((prev) => {
         const newMessage = [...prev]
