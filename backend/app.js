@@ -1,3 +1,4 @@
+import "dotenv/config"
 import aiRoute from "./prompt.route.js"
 import express from "express"
 import cors from "cors"
