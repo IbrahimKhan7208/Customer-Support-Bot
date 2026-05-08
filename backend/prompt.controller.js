@@ -11,6 +11,7 @@ export async function promptController(req, res) {
     const response = await llmCall(text);
     res.send(response);
   } catch (err) {
+    console.error("LLM Error:", err.message);
     res.status(500).send(err.message);
   }
 }
