@@ -43,6 +43,7 @@ export async function indexDocument(filePath) {
   });
 
   await vectorStore.addDocuments(documents);
+  console.log("ADDED IN VECTOR DB!  ");
 
 //   return {
 //     success: true,

@@ -1,6 +1,5 @@
 import Groq from "groq-sdk";
-import readline from "node:readline/promises";
-import { indexDocument, vectorStore } from "./gemini-prepare.js";
+import {getVectorStore } from "./vectorStore.js";
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
@@ -18,7 +17,7 @@ export async function llmCall(prompt) {
 
   const question = prompt;
 
-  const relevantContext = await vectorStore.similaritySearch(question, 3);
+  const relevantContext = await getVectorStore.similaritySearch(question, 3);
   const context = relevantContext.map((e) => e.pageContent).join("\n\n");
 
   const SYSTEM_PROMPT = `You are “CareChat”, a professional Customer Support Assistant for the e-commerce company ShopVerse.

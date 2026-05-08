@@ -16,8 +16,6 @@ const vectorStore = new PineconeStore(embeddings, {
   maxConcurrency: 5,
 });
 
-
-
 export async function indexDocument(filePath) {
   const loader = new PDFLoader(filePath, { splitPages: false });
   const doc = await loader.load();
